@@ -52,7 +52,7 @@ python3 Qadeer.py
 
 ---
 
-🕹️ Usage Examples
+## 🕹️ Usage Examples
 
 Default Use (Start Generator)
 
