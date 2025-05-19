@@ -43,4 +43,4 @@ cd ForexContactsPro
 python3 -m pip install --user --upgrade pip
 
 # Run script
-python3 Qadeer.py￼Enter
+python3 Qadeer.py
