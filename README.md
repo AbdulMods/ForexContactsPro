@@ -6,7 +6,8 @@
 </p>
 
 <h1 align="center">💼 Forex Contacts Pro</h1>
-<h3 align="center">Secure Trading Network Generator</h3>
+<h2 align="center"> Secure Trading Network Generator</h2>
+<h3 align="center">Crafted by Abdul Qadeer Gabol</h3>
 
 <div align="center">
   
@@ -27,57 +28,51 @@
 - ⚡ Instant contact generation
 - 🔒 Data security simulation
 - 📱 vCard 3.0 compatibility
-- 🖤 Red-Black CLI theme
+- 🖤 Poco-Yellow CLI theme
+- ⛲ More-Features Comming Soon
 
 ---
+
 
 ## 📦 Installation
 
-### Step 1 – Clone the Repo
-```bash
-git clone https://github.com/Mt5ModsbyQadeer/ForexContactsPro.git
+---
 
-Step 2 – Navigate into Directory
+## Step 1 – Clone the Repo
 
+# clone Repository
+```
+ git clonehttps://github.com/AbdulMods/ForexContactsPro.git
+```
+# Step 2 – Navigate into Directory
+```
 cd ForexContactsPro
-
-Step 3 – (Optional) Upgrade pip
-
-python3 -m pip install --user --upgrade pip
-
-Step 4 – Run the Script
-
+```
+# Step 3 – (Optional) Upgrade pip
+```
+ python3 -m pip install --user --upgrade pip
+```
+# Step 4 – Run the Script
+```
 python3 Qadeer.py
 
+ ```
 
 ---
 
-## 🕹️ Usage Examples
-
-Default Use (Start Generator)
-
-python3 Qadeer.py
-
-Advanced Options (coming soon)
-
-python3 Qadeer.py --countries 1,5,7 --output traders.vcf
-
-
----
-
-📜 Documentation
+## 📜 Documentation
 
 Command	Description	Example
 
 Name Prefix	Base name for contacts	Trader, Investor
 Countries	Comma-separated country codes	1,5,7 (USA, UAE, IND)
-Count	Total number of contacts	250
+Count	Total number of contacts	1000
 
 
 
 ---
 
-⚠️ Ethical Warning
+## ⚠️ Ethical Warning
 
 > This tool generates fictional data for educational and testing purposes only.
 Do not use it for illegal or unethical activities such as:
@@ -94,15 +89,8 @@ Any financial manipulation
 
 ---
 
-📞 Contact
 
-<p align="center">
-  <a href="https://t.me/Mt5ModsbyQadeer"><img src="https://img.shields.io/badge/Telegram-@Mt5ModsbyQadeer-blue?style=for-the-badge&logo=telegram"></a>
-  <a href="mailto:aqbaloch6201@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail"></a>
-</p>
----
-
-🧠 FAQ
+## 🧠 FAQ
 
 <details>
   <summary><strong>Is the data real?</strong></summary>
@@ -114,9 +102,18 @@ Any financial manipulation
   <summary><strong>Will this script be updated?</strong></summary>
   Yes! GUI version, email generators, and flags are in progress.
 </details>
+
 ---
+
+## 📞 Contact
+
+<p align="center">
+  <a href="https://t.me/Mt5ModsbyQadeer"><img src="https://img.shields.io/badge/Telegram-@Mt5ModsbyQadeer-blue?style=for-the-badge&logo=telegram"></a>
+  <a href="mailto:aqbaloch6201@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail"></a>
+</p>
+
 
 <div align="center">
   <sub>Crafted with ❤️ by <a href="https://t.me/Mt5ModsbyQadeer">Abdul Qadeer Gabol</a></sub>
 </div>
-```
+
