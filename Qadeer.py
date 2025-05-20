@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import random
+import shutil
 from datetime import datetime
 
 class ForexContactsPro:
@@ -12,6 +13,7 @@ class ForexContactsPro:
         self.ACCENT_COLOR = "\033[1;36m"
         self.WARNING_COLOR = "\033[1;31m"
         self.RESET = "\033[0m"
+        self.TARGET_DIR = "/storage/emulated/0/ForexContactsPro/"
         
         self.COUNTRIES = {
             1: {'code': '+1', 'name': 'USA', 'pattern': '###-###-####', 'weight': 15},
@@ -202,13 +204,24 @@ END:VCARD\n"""
             
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"Forex_Contacts_{timestamp}.vcf"
+            
+            # Original save to current directory
             with open(filename, 'w') as f:
                 f.write("\n".join(vcards))
+
+            # New automatic copy functionality
+            try:
+                os.makedirs(self.TARGET_DIR, exist_ok=True)
+                dest_path = os.path.join(self.TARGET_DIR, filename)
+                shutil.copy(filename, dest_path)
+                self._clean_print(f"📁 Auto-copied to: {dest_path}", self.ACCENT_COLOR)
+            except Exception as copy_error:
+                self._clean_print(f"⚠️  Auto-copy failed: {str(copy_error)}", self.WARNING_COLOR)
 
             self._clear_screen()
             print("\n" + "═" * 60)
             self._clean_print(f"✅ Success! Generated {count} contacts", "\033[1;32m")
-            self._clean_print(f"📁 File saved as: {filename}", self.ACCENT_COLOR)
+            self._clean_print(f"📁 Local copy: {filename}", self.ACCENT_COLOR)
             print("\n" + "═" * 60)
             input(f"{self.POCO_YELLOW}Press Enter to return to menu...{self.RESET}")
 
