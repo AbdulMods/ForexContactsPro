@@ -43,7 +43,7 @@ clear
 # Detect OS
 if [[ $(uname -o 2>/dev/null) == *Android* ]]; then
     OS="termux"
-    BIN_DIR="$HOME/.local/bin"
+    BIN_DIR="$PREFIX/bin"
 else
     OS="ubuntu"
     BIN_DIR="/usr/local/bin"
