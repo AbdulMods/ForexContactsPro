@@ -72,11 +72,12 @@ step() {
 
 # Installation
 install_all() {
-    step "Requesting Storage Permission for Termux"
+ step "Requesting Storage Permission for Termux"
 if [[ "$OS" == "termux" ]]; then
     termux-setup-storage
+    sleep 1
 else
-    echo "No storage permission needed on Ubuntu"
+    echo -e "${GREEN}No storage permission needed on Ubuntu.${NC}"
 fi
     step "Updating package lists..."
     if [[ "$OS" == "termux" ]]; then
