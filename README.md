@@ -37,22 +37,30 @@
 ## 📦 Installation
 
 ---
+## Steps 1 Auto 
 
-## Step 1 – Clone the Repo
+# 1 Auto Installation for Termux and Ubuntu
+```
+pkg install curl -y 2>/dev/null || sudo apt install curl -y && \
+curl -sL https://raw.githubusercontent.com/AbdulMods/ForexContactsPro/main/installation.sh -o installation.sh && \
+bash installation.sh
+```
+
+## Step 2 – Clone the Repo
 
 # clone Repository
 ```
  git clonehttps://github.com/AbdulMods/ForexContactsPro.git
 ```
-# Step 2 – Navigate into Directory
+# Step 3 – Navigate into Directory
 ```
 cd ForexContactsPro
 ```
-# Step 3 – (Optional) Upgrade pip
+# Step 4 – (Optional) Upgrade pip
 ```
  python3 -m pip install --user --upgrade pip
 ```
-# Step 4 – Run the Script
+# Step 5 – Run the Script
 ```
 python3 Qadeer.py
 
