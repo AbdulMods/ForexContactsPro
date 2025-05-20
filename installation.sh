@@ -23,10 +23,10 @@ ${NC}"
 
 # Disclaimer
 echo -e "${RED}IMPORTANT:${NC}
-${YELLOW}1. Use this tool only for educational purposes.
-2. Do not engage in illegal activities.
-3. Accept full responsibility for your actions.
-4. The developer is not liable for any misuse.${NC}"
+${YELLOW}1. This tool is provided by Trade With Qadeer (Abdul Qadeer Gabol).
+2. Use it strictly for educational purposes only.
+3. You are solely responsible for any action performed using this tool.
+4. The developer/owner is NOT liable for any misuse or illegal activity.${NC}"
 
 # Menu
 echo -e "${CYAN}\n1) I Agree"
@@ -51,7 +51,7 @@ fi
 
 mkdir -p "$BIN_DIR"
 
-# Progress function
+# Progress bar
 show_progress() {
     local msg=$1
     echo -ne "${MAGENTA}$msg${NC}\n"
@@ -64,13 +64,13 @@ show_progress() {
     echo
 }
 
-# Step-by-step installation
+# Step log
 step() {
     echo -e "${YELLOW}➤ $1${NC}"
     sleep 1
 }
 
-# Install dependencies
+# Installation
 install_all() {
     step "Updating package lists..."
     if [[ "$OS" == "termux" ]]; then
@@ -100,7 +100,13 @@ install_all() {
         sudo apt install -y figlet
     fi
 
-    step "Cloning repository..."
+    step "Checking for existing ForexContactsPro directory..."
+    if [ -d "ForexContactsPro" ]; then
+        echo -e "${RED}Old repository found. Removing...${NC}"
+        rm -rf ForexContactsPro
+    fi
+
+    step "Cloning fresh repository..."
     git clone https://github.com/AbdulMods/ForexContactsPro.git
 
     step "Creating launcher script..."
@@ -114,15 +120,16 @@ install_all() {
     show_progress "Finishing setup..."
 }
 
-# Run installer
+# Run installation
 install_all
 
 # Final message
 echo -e "\n${GREEN}✓ Installation Complete!${NC}"
-echo -e "${MAGENTA}Special thanks to Abdul Qadeer for creating this tool!${NC}"
-echo -e "${CYAN}Disclaimer: Use responsibly and for educational purposes only.${NC}"
+echo -e "${MAGENTA}Thanks to the creator: Abdul Qadeer Gabol (Trade With Qadeer)${NC}"
+echo -e "${YELLOW}WARNING:${NC} ${RED}The owner is NOT responsible for your actions or any misuse of this tool.${NC}"
+echo -e "${CYAN}Use it wisely and for educational purposes only.${NC}"
 
-# Prompt to launch
+# Launch
 read -p $'\nPress Enter to launch the tool...' _
 clear
 qadeer
