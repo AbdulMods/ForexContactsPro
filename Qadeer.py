@@ -197,7 +197,7 @@ END:VCARD\n"""
         
         while True:
             try:
-                choices = input(f"\n{self.POCO_YELLOW}Enter country numbers (comma-separated 1-25): {self.ACCENT_COLOR}").split(',')
+                choices = input(f"\n{self.POCO_YELLOW}Enter country numbers (comma-separated 1-50): {self.ACCENT_COLOR}").split(',')
                 selected = [int(c.strip()) for c in choices if c.strip().isdigit()]
                 valid = [c for c in selected if 1 <= c <= 50]
                 if valid:
