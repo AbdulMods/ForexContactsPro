@@ -113,6 +113,53 @@ Any financial manipulation
 
 ---
 
+
+---
+
+🔄 Update Note – v2.1
+
+📅 Date: 2025-05-21
+
+
+---
+
+✨ What’s New
+
+✅ Added 25 new countries (from index 26 to 50) with:
+
+✅ Valid dialing codes
+
+✅ Accurate mobile number patterns
+
+✅ Assigned weights for priority handling
+
+
+
+🚫 What’s Removed / Avoided
+
+⛔ Excluded duplicates and countries already in index 1–25
+
+⚠️ Countries like USA, UK, India, UAE, Canada and others already present were intentionally skipped from the new batch
+
+
+🛠️ Improvements
+
+🧹 Clean and consistent dictionary formatting
+
+⚙️ Better scalability and easier country lookup
+
+📱 Enhanced support for international mobile validation
+
+
+
+---
+
+📌 Use Case: Great for applications that validate, format, or auto-detect country codes for phone numbers.
+
+ 🙋 For suggestions and Help reach us here @TradeWithQadeer Telegram
+---
+
+
 ## 📞 Contact
 
 <p align="center">
