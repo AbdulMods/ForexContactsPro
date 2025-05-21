@@ -41,6 +41,32 @@ class ForexContactsPro:
             23: {'code': '+34', 'name': 'Spain', 'pattern': '### ## ## ##', 'weight': 4},
             24: {'code': '+39', 'name': 'Italy', 'pattern': '### #######', 'weight': 4},
             25: {'code': '+31', 'name': 'Netherlands', 'pattern': '## ### ####', 'weight': 4},
+            26: {'code': '+61', 'name': 'Australia', 'pattern': '04## ### ###', 'weight': 6},
+            27: {'code': '+49', 'name': 'Germany', 'pattern': '0151 #######', 'weight': 6},
+            28: {'code': '+90', 'name': 'Turkey', 'pattern': '05## ### ####', 'weight': 6},
+            29: {'code': '+60', 'name': 'Malaysia', 'pattern': '01#-### ####', 'weight': 5},
+            30: {'code': '+254', 'name': 'Kenya', 'pattern': '07## ### ###', 'weight': 5},
+            31: {'code': '+55', 'name': 'Brazil', 'pattern': '11 9####-####', 'weight': 5},
+            32: {'code': '+880', 'name': 'Bangladesh', 'pattern': '01#########', 'weight': 5},
+            33: {'code': '+974', 'name': 'Qatar', 'pattern': '3# ### ####', 'weight': 4},
+            34: {'code': '+965', 'name': 'Kuwait', 'pattern': '5## ######', 'weight': 4},
+            35: {'code': '+52', 'name': 'Mexico', 'pattern': '1## ### ####', 'weight': 4},
+            36: {'code': '+81', 'name': 'Japan', 'pattern': '090-####-####', 'weight': 4},
+            37: {'code': '+94', 'name': 'Sri Lanka', 'pattern': '07# ### ####', 'weight': 4},
+            38: {'code': '+256', 'name': 'Uganda', 'pattern': '07# ### ####', 'weight': 4},
+            39: {'code': '+251', 'name': 'Ethiopia', 'pattern': '09## ### ###', 'weight': 4},
+            40: {'code': '+98', 'name': 'Iran', 'pattern': '09## ### ####', 'weight': 3},
+            41: {'code': '+977', 'name': 'Nepal', 'pattern': '98##-###-###', 'weight': 3},
+            42: {'code': '+212', 'name': 'Morocco', 'pattern': '06 ## ## ## ##', 'weight': 3},
+            43: {'code': '+94', 'name': 'Sri Lanka', 'pattern': '07# ### ####', 'weight': 3},
+            44: {'code': '+855', 'name': 'Cambodia', 'pattern': '01# ### ###', 'weight': 3},
+            45: {'code': '+961', 'name': 'Lebanon', 'pattern': '03 ### ###', 'weight': 3},
+            46: {'code': '+998', 'name': 'Uzbekistan', 'pattern': '9# ### ####', 'weight': 3},
+            47: {'code': '+505', 'name': 'Nicaragua', 'pattern': '8## ######', 'weight': 2},
+            48: {'code': '+591', 'name': 'Bolivia', 'pattern': '7## ### ##', 'weight': 2},
+            49: {'code': '+961', 'name': 'Lebanon', 'pattern': '81# ### ###', 'weight': 2},
+            50: {'code': '+370', 'name': 'Lithuania', 'pattern': '6## #####', 'weight': 2},
+       
         }
 
         self.ASCII_ART = f"""
@@ -173,10 +199,10 @@ END:VCARD\n"""
             try:
                 choices = input(f"\n{self.POCO_YELLOW}Enter country numbers (comma-separated 1-25): {self.ACCENT_COLOR}").split(',')
                 selected = [int(c.strip()) for c in choices if c.strip().isdigit()]
-                valid = [c for c in selected if 1 <= c <= 25]
+                valid = [c for c in selected if 1 <= c <= 50]
                 if valid:
                     return valid
-                self._clean_print("Invalid selection. Choose numbers 1-25", "\033[91m")
+                self._clean_print("Invalid selection. Choose numbers 1-50", "\033[91m")
             except:
                 self._clean_print("Invalid input format. Try again.", "\033[91m")
 
