@@ -123,10 +123,10 @@ customize_terminal() {
 
 # Custom Trade With Qadeer Terminal
 echo -e "\033[1;91m
- ______            __      _      ___ __  __     ____          __
-/_  __/______ ____/ /__   | | /| / (_) /_/ /    / __ \___ ____/ /__ ___ ____
- / / / __/ _ \`/ _  / -_)  \| |/ |/ / / __/ _ \  / /_/ / _ \`/ __/ -_) __/ _ \\
-/_/ /_/  \_,_/\_,_/\__/   |__/|__/_/\__/_//_/  \___\_\_,_/\_,_/\__/\__/_/
+  __    __   ____  ____  ____  ____ 
+ /  \  / _\ (    \(  __)(  __)(  _ \
+(  O )/    \ ) D ( ) _)  ) _)  )   /
+ \__\)\_/\_/(____/(____)(____)(__\_)
 \033[0m"
 
 echo -e "\033[1;92m❤️  Welcome to ForexContactsPro Terminal!\033[0m"
@@ -143,10 +143,8 @@ echo ""
 # System information
 echo -e "\033[1;96mSystem Info:\033[0m"
 echo -e "  \033[1;95m• OS:\033[0m $(uname -o)"
-echo -e "  \033[1;95m• Version:\033[0m $(grep PRETTY_NAME /data/data/com.termux/files/usr/etc/os-release | cut -d= -f2 | tr -d '\"')"
 echo -e "  \033[1;95m• Device:\033[0m $(getprop ro.product.model)"
 echo -e "  \033[1;95m• Time:\033[0m $(date +%T)"
-echo -e "  \033[1;95m• Directory:\033[0m \w"
 echo ""
 
 # Custom prompt with colors, time and directory
@@ -191,10 +189,10 @@ EOL
 
 # Custom Trade With Qadeer Terminal Configuration
 echo -e "\033[1;91m
- ______            __      _      ___ __  __     ____          __
-/_  __/______ ____/ /__   | | /| / (_) /_/ /    / __ \___ ____/ /__ ___ ____
- / / / __/ _ \`/ _  / -_)  \| |/ |/ / / __/ _ \  / /_/ / _ \`/ __/ -_) __/ _ \\
-/_/ /_/  \_,_/\_,_/\__/   |__/|__/_/\__/_//_/  \___\_\_,_/\_,_/\__/\__/_/
+  __    __   ____  ____  ____  ____ 
+ /  \  / _\ (    \(  __)(  __)(  _ \
+(  O )/    \ ) D ( ) _)  ) _)  )   /
+ \__\)\_/\_/(____/(____)(____)(__\_)
 \033[0m"
 
 echo -e "\033[1;92m❤️  Welcome to ForexContactsPro Terminal!\033[0m"
