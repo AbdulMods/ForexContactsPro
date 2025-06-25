@@ -2,7 +2,7 @@
 
 clear
 
-# Color codes - Enhanced with more vibrant colors
+# Enhanced Color Scheme
 RED='\033[1;91m'
 GREEN='\033[1;92m'
 YELLOW='\033[1;93m'
@@ -13,7 +13,7 @@ PURPLE='\033[1;35m'
 ORANGE='\033[1;33m'
 NC='\033[0m'
 
-# Cool ASCII Header with gradient effect
+# Beautiful ASCII Header with Gradient
 echo -e "${BLUE}╔══════════════════════════════════════════════════╗"
 echo -e "${CYAN}║${BLUE} ███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗ ${CYAN}║"
 echo -e "${CYAN}║${GREEN} ██╔════╝██╔═══██╗██╔══██╗██╔════╝╚██╗██╔╝ ${CYAN}║"
@@ -23,7 +23,7 @@ echo -e "${CYAN}║${MAGENTA} ██║     ╚██████╔╝██║
 echo -e "${CYAN}║${PURPLE} ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ${CYAN}║"
 echo -e "${BLUE}╚══════════════════════════════════════════════════╝${NC}"
 
-# Cool disclaimer box
+# Disclaimer Box
 echo -e "${BLUE}┌─────────────────────── ${RED}IMPORTANT ${BLUE}───────────────────────┐"
 echo -e "${BLUE}│${NC}                                                      ${BLUE}│"
 echo -e "${BLUE}│${YELLOW}  1. This tool is provided by Trade With Qadeer        ${BLUE}│"
@@ -33,15 +33,9 @@ echo -e "${BLUE}│${YELLOW}  4. Developer/owner NOT liable for any misuse      
 echo -e "${BLUE}│${NC}                                                      ${BLUE}│"
 echo -e "${BLUE}└──────────────────────────────────────────────────────────┘${NC}"
 
-# Stylish menu
-echo -e "\n${PURPLE}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
-echo -e "${PURPLE}┃   ${CYAN}SELECT AN OPTION ${PURPLE}         ┃"
-echo -e "${PURPLE}┃                             ┃"
-echo -e "${PURPLE}┃   ${GREEN}1) ${CYAN}I Agree ${ORANGE}😎 ${PURPLE}           ┃"
-echo -e "${PURPLE}┃   ${RED}2) ${CYAN}Exit ${RED}✗ ${PURPLE}               ┃"
-echo -e "${PURPLE}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${NC}"
-
-read -p $'\n'"${YELLOW}➤ ${CYAN}Your choice [${GREEN}1${CYAN}/${RED}2${CYAN}]: ${NC}" choice
+# Fixed Choice Prompt
+echo -ne "\n${YELLOW}➤ ${CYAN}Your choice [${GREEN}1${CYAN}/${RED}2${CYAN}]: ${NC}"
+read choice
 
 if [[ "$choice" != "1" ]]; then
     echo -e "\n${RED}✗ Installation aborted. Terms not accepted.${NC}"
@@ -50,9 +44,7 @@ fi
 
 clear
 
-# Cool OS detection animation
-echo -e "${BLUE}🔍 Detecting your operating system..."
-sleep 1
+# Detect OS
 if [[ $(uname -o 2>/dev/null) == *Android* ]]; then
     OS="termux"
     BIN_DIR="$PREFIX/bin"
@@ -130,6 +122,64 @@ install_package() {
     fi
 }
 
+# Terminal customization function
+customize_termux() {
+    if [[ "$OS" == "termux" ]]; then
+        step "Customizing Termux terminal" "🎨"
+        
+        # Create custom bashrc
+        cat > ~/../usr/etc/bash.bashrc << 'EOL'
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Custom Trade With Qadeer Terminal
+echo -e "\033[1;91m
+▀█▀ █░█ ▄▀█ █▄░█ █▄▀   █▄▀ █▀▀ █▀▄▀█ █▀▀   █▀▀ █▀█ █▀█ █▀▄ █ ▀█▀
+░█░ █▀█ █▀█ █░▀█ █░█   █░█ ██▄ █░▀░█ ██▄   █▄▄ █▄█ █▄█ █▄▀ █ ░█░
+\033[0m"
+
+echo -e "\033[1;92m❤️  Welcome to ForexContactsPro Terminal!\033[0m"
+echo -e "\033[1;93m📢  Educational Use Only - Trade Responsibly\033[0m"
+echo -e "\033[1;94m© 2023 Trade With Qadeer. All rights reserved.\033[0m"
+echo ""
+
+# Show installed tools
+echo -e "\033[1;96mInstalled Tools:\033[0m"
+echo -e "  \033[1;95m• ForexContactsPro\033[0m"
+echo -e "    Run command: \033[1;97mqadeer\033[0m"
+echo ""
+
+# System information
+echo -e "\033[1;96mSystem Info:\033[0m"
+echo -e "  \033[1;95m• OS:\033[0m $(uname -o)"
+echo -e "  \033[1;95m• Version:\033[0m $(termux-info | head -n 1 | cut -d ':' -f2)"
+echo -e "  \033[1;95m• Device:\033[0m $(getprop ro.product.model)"
+echo ""
+
+# Custom prompt with colors
+PS1='\[\033[1;92m\]➤ \[\033[1;96m\]\w \[\033[1;91m\]\$ \[\033[0m\]'
+EOL
+
+        # Create custom motd
+        cat > ~/../usr/etc/motd << 'EOL'
+________________________________________________________
+|                                                      |
+|    ████████╗██████╗  █████╗ ██████╗ ███████╗         |
+|    ╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██╔════╝         |
+|       ██║   ██████╔╝███████║██║  ██║█████╗           |
+|       ██║   ██╔══██╗██╔══██║██║  ██║██╔══╝           |
+|       ██║   ██║  ██║██║  ██║██████╔╝███████╗         |
+|       ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝         |
+|                                                      |
+| ForexContactsPro Tool by Abdul Qadeer Gabol          |
+| Educational Use Only - Trade Responsibly             |
+|______________________________________________________|
+EOL
+
+        echo -e "${GREEN}✓ Termux terminal customized successfully!${NC}"
+        echo -e "${YELLOW}⚠️ Restart Termux to see the new look${NC}"
+    fi
+}
+
 # Installation process
 install_all() {
     if [[ "$OS" == "termux" ]]; then
@@ -203,6 +253,9 @@ echo -e "\n${PURPLE}🚀 Starting installation process...${NC}"
 sleep 1
 
 if install_all; then
+    # Run terminal customization
+    customize_termux
+    
     # Success animation
     echo -e "\n${GREEN}╔══════════════════════════════════════╗"
     echo -e "║          🎉 INSTALLATION SUCCESS!        ║"
