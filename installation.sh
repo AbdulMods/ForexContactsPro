@@ -2,141 +2,248 @@
 
 clear
 
-# Color codes
-RED='\033[1;31m'
-GREEN='\033[1;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[1;34m'
-CYAN='\033[1;36m'
-MAGENTA='\033[1;35m'
+# Color codes - Enhanced with more vibrant colors
+RED='\033[1;91m'
+GREEN='\033[1;92m'
+YELLOW='\033[1;93m'
+BLUE='\033[1;94m'
+CYAN='\033[1;96m'
+MAGENTA='\033[1;95m'
+PURPLE='\033[1;35m'
+ORANGE='\033[1;33m'
 NC='\033[0m'
 
-# ASCII Header
-echo -e "${BLUE}
-███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗
-██╔════╝██╔═══██╗██╔══██╗██╔════╝╚██╗██╔╝
-█████╗  ██║   ██║██████╔╝█████╗   ╚███╔╝ 
-██╔══╝  ██║   ██║██╔══██╗██╔══╝   ██╔██╗ 
-██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗
-╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-${NC}"
+# Cool ASCII Header with gradient effect
+echo -e "${BLUE}╔══════════════════════════════════════════════════╗"
+echo -e "${CYAN}║${BLUE} ███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗ ${CYAN}║"
+echo -e "${CYAN}║${GREEN} ██╔════╝██╔═══██╗██╔══██╗██╔════╝╚██╗██╔╝ ${CYAN}║"
+echo -e "${CYAN}║${YELLOW} █████╗  ██║   ██║██████╔╝█████╗   ╚███╔╝  ${CYAN}║"
+echo -e "${CYAN}║${RED} ██╔══╝  ██║   ██║██╔══██╗██╔══╝   ██╔██╗  ${CYAN}║"
+echo -e "${CYAN}║${MAGENTA} ██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗ ${CYAN}║"
+echo -e "${CYAN}║${PURPLE} ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ${CYAN}║"
+echo -e "${BLUE}╚══════════════════════════════════════════════════╝${NC}"
 
-# Disclaimer
-echo -e "${RED}IMPORTANT:${NC}
-${YELLOW}1. This tool is provided by Trade With Qadeer (Abdul Qadeer Gabol).
-2. Use it strictly for educational purposes only.
-3. You are solely responsible for any action performed using this tool.
-4. The developer/owner is NOT liable for any misuse or illegal activity.${NC}"
+# Cool disclaimer box
+echo -e "${BLUE}┌─────────────────────── ${RED}IMPORTANT ${BLUE}───────────────────────┐"
+echo -e "${BLUE}│${NC}                                                      ${BLUE}│"
+echo -e "${BLUE}│${YELLOW}  1. This tool is provided by Trade With Qadeer        ${BLUE}│"
+echo -e "${BLUE}│${YELLOW}  2. Use strictly for educational purposes only        ${BLUE}│"
+echo -e "${BLUE}│${YELLOW}  3. You're solely responsible for your actions        ${BLUE}│"
+echo -e "${BLUE}│${YELLOW}  4. Developer/owner NOT liable for any misuse         ${BLUE}│"
+echo -e "${BLUE}│${NC}                                                      ${BLUE}│"
+echo -e "${BLUE}└──────────────────────────────────────────────────────────┘${NC}"
 
-# Menu
-echo -e "${CYAN}\n1) I Agree"
-echo "2) Exit${NC}"
-read -p $'\nSelect an option (1 or 2): ' choice
+# Stylish menu
+echo -e "\n${PURPLE}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+echo -e "${PURPLE}┃   ${CYAN}SELECT AN OPTION ${PURPLE}         ┃"
+echo -e "${PURPLE}┃                             ┃"
+echo -e "${PURPLE}┃   ${GREEN}1) ${CYAN}I Agree ${ORANGE}😎 ${PURPLE}           ┃"
+echo -e "${PURPLE}┃   ${RED}2) ${CYAN}Exit ${RED}✗ ${PURPLE}               ┃"
+echo -e "${PURPLE}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${NC}"
+
+read -p $'\n'"${YELLOW}➤ ${CYAN}Your choice [${GREEN}1${CYAN}/${RED}2${CYAN}]: ${NC}" choice
 
 if [[ "$choice" != "1" ]]; then
-    echo -e "${RED}Installation aborted. You did not accept the terms.${NC}"
+    echo -e "\n${RED}✗ Installation aborted. Terms not accepted.${NC}"
     exit 1
 fi
 
 clear
 
-# Detect OS
+# Cool OS detection animation
+echo -e "${BLUE}🔍 Detecting your operating system..."
+sleep 1
 if [[ $(uname -o 2>/dev/null) == *Android* ]]; then
     OS="termux"
     BIN_DIR="$PREFIX/bin"
+    echo -e "${GREEN}✓ Running on ${CYAN}Termux${GREEN} (Android)${NC}"
 else
     OS="ubuntu"
     BIN_DIR="/usr/local/bin"
+    echo -e "${GREEN}✓ Running on ${CYAN}Ubuntu/Linux${NC}"
 fi
+sleep 1
 
 mkdir -p "$BIN_DIR"
 
-# Progress bar
+# Enhanced progress bar with emojis
 show_progress() {
     local msg=$1
-    echo -ne "${MAGENTA}$msg${NC}\n"
+    local emoji=$2
+    echo -ne "\n${PURPLE}${emoji} ${MAGENTA}${msg}${NC}\n"
     local bar=""
+    local spin=("-" "\\" "|" "/")
+    local spin_idx=0
     for i in {1..50}; do
-        bar+="#"
-        printf "\r[%-50s] %d%%" "$bar" "$((2 * i))"
+        bar+="▓"
+        printf "\r${CYAN}[${GREEN}%-50s${CYAN}] ${YELLOW}%d%% ${spin[${spin_idx}]}" "$bar" "$((2 * i))"
+        ((spin_idx = (spin_idx + 1) % 4))
         sleep 0.03
     done
-    echo
+    echo -e "\n${GREEN}✓ Completed!${NC}"
 }
 
-# Step log
+# Step log with cool icons
 step() {
-    echo -e "${YELLOW}➤ $1${NC}"
-    sleep 1
+    local emoji=$2
+    echo -e "\n${YELLOW}${emoji} ➤ ${CYAN}$1${NC}"
+    sleep 0.3
 }
 
-# Installation
+# Package installer with retry and cool status
+install_package() {
+    local pkg="$1"
+    local max_retries=3
+    local attempt=1
+    local success=0
+    
+    if [[ "$OS" == "termux" ]]; then
+        while [[ $attempt -le $max_retries ]]; do
+            if pkg install -y "$pkg" 2>/dev/null; then
+                success=1
+                break
+            else
+                echo -e "${RED}⛔ Attempt $attempt failed for $pkg. Retrying...${NC}"
+                ((attempt++))
+                sleep 1
+            fi
+        done
+    else
+        while [[ $attempt -le $max_retries ]]; do
+            if sudo apt install -y "$pkg" 2>/dev/null; then
+                success=1
+                break
+            else
+                echo -e "${RED}⛔ Attempt $attempt failed for $pkg. Retrying...${NC}"
+                ((attempt++))
+                sleep 1
+            fi
+        done
+    fi
+    
+    if [[ $success -eq 1 ]]; then
+        echo -e "${GREEN}✓ $pkg installed successfully${NC}"
+        return 0
+    else
+        echo -e "${RED}✗ Critical failure installing $pkg after $max_retries attempts${NC}"
+        return 1
+    fi
+}
+
+# Installation process
 install_all() {
- step "Requesting Storage Permission for Termux"
-if [[ "$OS" == "termux" ]]; then
-    termux-setup-storage
-    sleep 1
-else
-    echo -e "${GREEN}No storage permission needed on Ubuntu.${NC}"
-fi
-    step "Updating package lists..."
     if [[ "$OS" == "termux" ]]; then
-        pkg update -y
-    else
-        sudo apt update -y
+        step "Requesting Storage Permission" "📱"
+        termux-setup-storage
+        sleep 1
     fi
 
-    step "Installing Python..."
+    step "Updating package repositories" "🔄"
     if [[ "$OS" == "termux" ]]; then
-        pkg install -y python
+        pkg update -y >/dev/null 2>&1
     else
-        sudo apt install -y python3
+        sudo apt update -y >/dev/null 2>&1
     fi
 
-    step "Installing Git..."
+    # Install essential packages
+    step "Installing Python" "🐍"
     if [[ "$OS" == "termux" ]]; then
-        pkg install -y git
+        install_package python || return 1
     else
-        sudo apt install -y git
+        install_package python3 || return 1
     fi
 
-    step "Installing Figlet (optional)..."
+    step "Installing Git" "🌐"
+    install_package git || return 1
+
+    step "Installing Figlet" "✨"
     if [[ "$OS" == "termux" ]]; then
-        pkg install -y figlet
+        install_package figlet
     else
-        sudo apt install -y figlet
+        install_package figlet
     fi
 
-    step "Checking for existing ForexContactsPro directory..."
+    # Clean existing installation
+    step "Checking for previous installations" "🧹"
     if [ -d "ForexContactsPro" ]; then
-        echo -e "${RED}Old repository found. Removing...${NC}"
+        echo -e "${RED}Removing old repository...${NC}"
         rm -rf ForexContactsPro
     fi
 
-    step "Cloning fresh repository..."
-    git clone https://github.com/AbdulMods/ForexContactsPro.git
-
-    step "Creating launcher script..."
-    echo -e "#!/bin/bash\ncd $(pwd)/ForexContactsPro && python3 Qadeer.py" > "$BIN_DIR/qadeer"
-    chmod +x "$BIN_DIR/qadeer"
-
-    if [[ "$OS" == "ubuntu" ]]; then
-        sudo apt-get clean
+    # Clone repository
+    step "Cloning repository" "📥"
+    if git clone https://github.com/AbdulMods/ForexContactsPro.git; then
+        echo -e "${GREEN}✓ Repository cloned successfully${NC}"
+    else
+        echo -e "${RED}✗ Failed to clone repository. Check internet connection${NC}"
+        return 1
     fi
 
-    show_progress "Finishing setup..."
+    # Create launcher
+    step "Creating launcher script" "🚀"
+    echo -e "#!/bin/bash\ncd $(pwd)/ForexContactsPro && python3 Qadeer.py" > "$BIN_DIR/qadeer"
+    if chmod +x "$BIN_DIR/qadeer"; then
+        echo -e "${GREEN}✓ Launcher created at $BIN_DIR/qadeer${NC}"
+    else
+        echo -e "${RED}✗ Failed to create launcher script${NC}"
+        return 1
+    fi
+
+    # Cleanup
+    if [[ "$OS" == "ubuntu" ]]; then
+        sudo apt-get clean >/dev/null
+    fi
+
+    show_progress "Finalizing installation" "⚡"
+    return 0
 }
 
-# Run installation
-install_all
+# Run installation with cool animation
+echo -e "\n${PURPLE}🚀 Starting installation process...${NC}"
+sleep 1
 
-# Final message
-echo -e "\n${GREEN}✓ Installation Complete!${NC}"
-echo -e "${MAGENTA}Thanks to the creator: Abdul Qadeer Gabol (Trade With Qadeer)${NC}"
-echo -e "${YELLOW}WARNING:${NC} ${RED}The owner is NOT responsible for your actions or any misuse of this tool.${NC}"
-echo -e "${CYAN}Use it wisely and for educational purposes only.${NC}"
+if install_all; then
+    # Success animation
+    echo -e "\n${GREEN}╔══════════════════════════════════════╗"
+    echo -e "║          🎉 INSTALLATION SUCCESS!        ║"
+    echo -e "╚══════════════════════════════════════╝${NC}"
+else
+    # Failure animation
+    echo -e "\n${RED}╔══════════════════════════════════════╗"
+    echo -e "║          ⚠️ INSTALLATION FAILED!         ║"
+    echo -e "╚══════════════════════════════════════╝${NC}"
+    exit 1
+fi
 
-# Launch
-read -p $'\nPress Enter to launch the tool...' _
-clear
-qadeer
+# Final message with style
+echo -e "\n${PURPLE}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+echo -e "┃  ${CYAN}Tool created by: ${MAGENTA}Abdul Qadeer Gabol     ┃"
+echo -e "┃  ${CYAN}         (Trade With Qadeer)          ┃"
+echo -e "┃                                            ┃"
+echo -e "┃  ${YELLOW}⚠️ ${RED}LEGAL DISCLAIMER: ${ORANGE}Use only for     ┃"
+echo -e "┃  ${ORANGE}educational purposes. Owner NOT      ┃"
+echo -e "┃  ${ORANGE}responsible for any misuse.          ┃"
+echo -e "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${NC}"
+
+# Launch prompt
+if command -v qadeer &>/dev/null; then
+    echo -e "\n${BLUE}👉 ${CYAN}Press Enter to launch the tool ${GREEN}OR"
+    echo -e "${BLUE}👉 ${CYAN}Type 'qadeer' anytime to run it${NC}"
+    read -p $'\n'"${YELLOW}➤ ${CYAN}Launch now? [${GREEN}Y${CYAN}/${RED}n${CYAN}]: ${NC}" launch
+    
+    if [[ "${launch,,}" != "n" ]]; then
+        clear
+        echo -e "${BLUE}🚀 Launching ForexContactsPro...${NC}\n"
+        sleep 1
+        qadeer
+    else
+        echo -e "\n${GREEN}You can launch anytime with: ${CYAN}qadeer${NC}"
+    fi
+else
+    echo -e "\n${RED}⚠️ Launcher not found. Try these steps:"
+    echo -e "1. Restart your terminal"
+    echo -e "2. Run manually: ${CYAN}cd ForexContactsPro && python3 Qadeer.py${NC}"
+fi
+
+# Cool exit
+echo -e "\n${PURPLE}✨ Thanks for using the installer! ✨${NC}"
