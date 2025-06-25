@@ -123,10 +123,15 @@ customize_terminal() {
 
 # Custom Trade Terminal
 echo -e "\033[1;91m
-  ____  ____  ____  ____ 
- /  _ \/  _ \/  _ \/  _ \
-(  (_) )  (_) )  (_) )  (_) )
- \____/\____/\____/\____/
+  
+▗▄▄▄▖  ▗▄▖ ▗▄▄▄ ▗▄▄▄▖▗▄▄▄▖▗▄▄▖ 
+▐▌ ▐▌ ▐▌ ▐▌▐▌  █▐▌   ▐▌   ▐▌ ▐▌
+▐▌ ▐▌ ▐▛▀▜▌▐▌  █▐▛▀▀▘▐▛▀▀▘▐▛▀▚▖
+▐▙▄▟▙▖▐▌ ▐▌▐▙▄▄▀▐▙▄▄▖▐▙▄▄▖▐▌ ▐▌
+                               
+                               
+                               
+
 \033[0m"
 
 echo -e "\033[1;92m❤️  Welcome to Trade Terminal!\033[0m"
@@ -148,7 +153,7 @@ echo -e "  \033[1;95m• Time:\033[0m $(date +%T)"
 echo ""
 
 # Custom prompt with colors, time and directory
-PS1='\[\033[1;91m\]\t \[\033[1;92m\]Qadeer➤ Write Your Cmds ➤ \[\033[1;96m\]\w \[\033[1;91m\]\$ '
+PS1='\[\033[1;91m\]\t \[\033[1;92m\]Qadeer ➤ Write Your Cmds ➤ \[\033[1;96m\]\w \[\033[1;91m\]\$ '
 EOL
 
         # Create custom motd
@@ -194,10 +199,15 @@ if [[ -z "$TRADE_BANNER_SHOWN" ]]; then
   export TRADE_BANNER_SHOWN=1
 
   echo -e "\033[1;91m
-   ____  ____  ____  ____ 
-  /  _ \/  _ \/  _ \/  _ \ 
- (  (_) )  (_) )  (_) )  (_) )
-  \____/\____/\____/\____/
+   
+▗▄▄▄▖  ▗▄▖ ▗▄▄▄ ▗▄▄▄▖▗▄▄▄▖▗▄▄▖ 
+▐▌ ▐▌ ▐▌ ▐▌▐▌  █▐▌   ▐▌   ▐▌ ▐▌
+▐▌ ▐▌ ▐▛▀▜▌▐▌  █▐▛▀▀▘▐▛▀▀▘▐▛▀▚▖
+▐▙▄▟▙▖▐▌ ▐▌▐▙▄▄▀▐▙▄▄▖▐▙▄▄▖▐▌ ▐▌
+                               
+                               
+                               
+
 \033[0m"
 
   echo -e "\033[1;92m❤️  Welcome to Trade Terminal!\033[0m"
@@ -213,7 +223,7 @@ fi
 # End Trade Terminal Banner
 
 # Custom prompt
-PS1='\[\033[1;91m\]\t \[\033[1;92m\]Qadeer➤ Write Your Cmds ➤ \[\033[1;96m\]\w \[\033[1;91m\]\$ '
+PS1='\[\033[1;91m\]\t \[\033[1;92m\]Qadeer ➤ Write Your Cmds ➤ \[\033[1;96m\]\w \[\033[1;91m\]\$ '
 EOL
 
 
