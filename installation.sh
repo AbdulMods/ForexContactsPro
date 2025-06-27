@@ -112,128 +112,7 @@ install_package() {
     fi
 }
 
-# Customization 
-customize_terminal() {
-    if [[ "$OS" == "termux" ]]; then
-        step "Customizing Termux terminal" "🎨"
-        
-        # Create custom bashrc with proper escaping
-        cat > ~/../usr/etc/bash.bashrc << 'EOL'
-#!/data/data/com.termux/files/usr/bin/bash
 
-# Custom Trade Terminal
-echo -e "\033[1;91m
-  
-▗▄▄▄▖  ▗▄▖ ▗▄▄▄ ▗▄▄▄▖▗▄▄▄▖▗▄▄▖ 
-▐▌ ▐▌ ▐▌ ▐▌▐▌  █▐▌   ▐▌   ▐▌ ▐▌
-▐▌ ▐▌ ▐▛▀▜▌▐▌  █▐▛▀▀▘▐▛▀▀▘▐▛▀▚▖
-▐▙▄▟▙▖▐▌ ▐▌▐▙▄▄▀▐▙▄▄▖▐▙▄▄▖▐▌ ▐▌
-                               
-                               
-                               
-
-\033[0m"
-
-echo -e "\033[1;92m❤️  Welcome to Trade Terminal!\033[0m"
-echo -e "\033[1;93m📢  Educational Use Only - Trade Responsibly\033[0m"
-echo -e "\033[1;94m© $(date +%Y) Trade. All rights reserved.\033[0m"
-echo ""
-
-# Show installed tools
-echo -e "\033[1;96mInstalled Tools:\033[0m"
-echo -e "  \033[1;95m• Trade Terminal\033[0m"
-echo -e "    Run command: \033[1;97mqadeer\033[0m"
-echo ""
-
-# System information
-echo -e "\033[1;96mSystem Info:\033[0m"
-echo -e "  \033[1;95m• OS:\033[0m $(uname -o)"
-echo -e "  \033[1;95m• Device:\033[0m $(getprop ro.product.model)"
-echo -e "  \033[1;95m• Time:\033[0m $(date +%T)"
-echo ""
-
-# Custom prompt with colors, time and directory
-PS1='\[\033[1;91m\]\t \[\033[1;92m\]Qadeer ➤ Write Your Cmds ➤ \[\033[1;96m\]\w \[\033[1;91m\]\$ '
-EOL
-
-        # Create custom motd
-        cat > ~/../usr/etc/motd << 'EOL'
-________________________________________________________
-|                                                      |
-|    ████████╗██████╗  █████╗ ██████╗ ███████╗         |
-|    ╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██╔════╝         |
-|       ██║   ██████╔╝███████║██║  ██║█████╗           |
-|       ██║   ██╔══██╗██╔══██║██║  ██║██╔══╝           |
-|       ██║   ██║  ██║██║  ██║██████╔╝███████╗         |
-|       ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝         |
-|                                                      |
-| Trade Tool by Abdul Qadeer Gabol                     |
-| Educational Use Only - Trade Responsibly             |
-|______________________________________________________|
-EOL
-
-        echo -e "${GREEN}✓ Termux terminal customized successfully!${NC}"
-        echo -e "${YELLOW}⚠️ Restart Termux to see the new look${NC}"
-    else
-        # Ubuntu customization
-        echo -e "\n${CYAN}Would you like to install our custom terminal look for Ubuntu?${NC}"
-        echo -ne "${YELLOW}➤ ${CYAN}Your choice [${GREEN}Y${CYAN}/${RED}n${CYAN}]: ${NC}"
-        read ubuntu_choice
-        
-        if [[ "${ubuntu_choice,,}" != "n" ]]; then
-            step "Customizing Ubuntu terminal" "🎨"
-            
-            # Backup existing bashrc
-            if [ ! -f ~/.bashrc.bak ]; then
-                cp ~/.bashrc ~/.bashrc.bak
-                echo -e "${GREEN}✓ Created backup of .bashrc${NC}"
-            fi
-# Remove old banner block
-sed -i '/# Custom Trade Terminal/,/End Trade Terminal Banner/d' ~/.bashrc
-
-# Add new one safely
-cat >> ~/.bashrc << 'EOL'
-
-# Custom Trade Terminal
-if [[ -z "$TRADE_BANNER_SHOWN" ]]; then
-  export TRADE_BANNER_SHOWN=1
-
-  echo -e "\033[1;91m
-   
-▗▄▄▄▖  ▗▄▖ ▗▄▄▄ ▗▄▄▄▖▗▄▄▄▖▗▄▄▖ 
-▐▌ ▐▌ ▐▌ ▐▌▐▌  █▐▌   ▐▌   ▐▌ ▐▌
-▐▌ ▐▌ ▐▛▀▜▌▐▌  █▐▛▀▀▘▐▛▀▀▘▐▛▀▚▖
-▐▙▄▟▙▖▐▌ ▐▌▐▙▄▄▀▐▙▄▄▖▐▙▄▄▖▐▌ ▐▌
-                               
-                               
-                               
-
-\033[0m"
-
-  echo -e "\033[1;92m❤️  Welcome to Trade Terminal!\033[0m"
-  echo -e "\033[1;93m📢  Educational Use Only - Trade Responsibly\033[0m"
-  echo -e "\033[1;94m© $(date +%Y) Trade. All rights reserved.\033[0m"
-  echo ""
-
-  echo -e "\033[1;96mInstalled Tools:\033[0m"
-  echo -e "  \033[1;95m• Trade Terminal\033[0m"
-  echo -e "    Run command: \033[1;97mqadeer\033[0m"
-  echo ""
-fi
-# End Trade Terminal Banner
-
-# Custom prompt
-PS1='\[\033[1;91m\]\t \[\033[1;92m\]Qadeer ➤ Write Your Cmds ➤ \[\033[1;96m\]\w \[\033[1;91m\]\$ '
-EOL
-
-
-            echo -e "${GREEN}✓ Ubuntu terminal customized successfully!${NC}"
-            echo -e "${YELLOW}⚠️ Restart your terminal to see the new look${NC}"
-        else
-            echo -e "${YELLOW}✓ Skipping Ubuntu terminal customization${NC}"
-        fi
-    fi
-}
 # Installation process
 install_all() {
     if [[ "$OS" == "termux" ]]; then
@@ -281,8 +160,8 @@ install_all() {
 
     # Create launcher
     step "Creating launcher script" "🚀"
-    echo -e "#!/bin/bash\ncd $(pwd)/ForexContactsPro && python3 Qadeer.py" > "$BIN_DIR/qadeer"
-    if chmod +x "$BIN_DIR/qadeer"; then
+    echo -e "#!/bin/bash\ncd $(pwd)/ForexContactsPro && python3 Qadeer.py" > "$BIN_DIR/pro-contacts"
+    if chmod +x "$BIN_DIR/pro-contacts"; then
         echo -e "${GREEN}✓ Launcher created at $BIN_DIR/qadeer${NC}"
     else
         echo -e "${RED}✗ Failed to create launcher script${NC}"
@@ -350,3 +229,4 @@ fi
 
 # Cool exit
 echo -e "\n${PURPLE}✨ Thanks for using the installer! ✨${NC}"
+ clear
